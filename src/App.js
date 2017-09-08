@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import SubscriptionForm from './components/SubscriptionForm/SubscriptionForm';
 import CollectionsContainer from './components/CollectionsContainer/CollectionsContainer';
+import Footer from './components/Footer/Footer';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <Navbar />
         <SubscriptionForm />
         <CollectionsContainer />
+        <Footer />
       </div>
     );
   }
