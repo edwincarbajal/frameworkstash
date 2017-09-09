@@ -1,37 +1,44 @@
 import React, { Component } from 'react';
 import Collection from '../Collection/Collection';
+import axios from 'axios';
 
 class CollectionsContainer extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      collections: []
+    };
   }
 
-  render() {
-    const collectionsArray = [
-      {
-        title: 'react',
-        description: 'cool',
-        tutorials: 12
-      },
-      {
-        title: 'React Native',
-        description: 'Mobile',
-        tutorials: 10
-      },
-      {
-        title: 'Ruby on Rails',
-        description: 'You are on the rails',
-        tutorials: 800
-      }
-    ];
+  componentDidMount = () => {
+    axios
+      .get('http://localhost:3001/v1/frameworks')
+      .then(response => {
+        console.log(response);
+        this.setState({ collections: response.data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
+  render() {
     return (
       <div className="row">
         <div className="col-md-12">
           <h4 className="text-muted">Collections</h4>
           <div className="card-deck">
-            {collectionsArray.map((collection, index) => {
-              return <Collection collection={collection} key={index} />;
+            {this.state.collections.map(collection => {
+              return (
+                <Collection
+                  key={collection.id}
+                  id={collection.id}
+                  description={collection.description}
+                  title={collection.title}
+                  total_tutorials={collection.total_tutorials}
+                  handleOnClick={this.props.handleOnClick}
+                />
+              );
             })}
           </div>
         </div>
