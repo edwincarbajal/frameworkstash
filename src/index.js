@@ -6,6 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { browserHistory } from 'react-router';
 import Routes from './routes';
 import 'bootstrap/dist/css/bootstrap.css';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 ReactDOM.render(
   <Routes history={browserHistory} />,
