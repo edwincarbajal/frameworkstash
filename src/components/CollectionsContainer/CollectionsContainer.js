@@ -36,7 +36,7 @@ class CollectionsContainer extends Component {
                   description={collection.description}
                   title={collection.title}
                   total_tutorials={collection.total_tutorials}
-                  handleOnClick={this.props.handleOnClick}
+                  handleClick={this.props.handleClick}
                 />
               );
             })}

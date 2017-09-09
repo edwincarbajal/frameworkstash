@@ -14,22 +14,20 @@ class App extends Component {
     };
   }
 
-  handleOnClick = event => {
-    axios
-      .get(`http://localhost:3001/v1/frameworks/${event.target.id}/tutorials`)
-      .then(response => {
-        this.setState({ tutorials: response.data });
-      })
-      .catch(errors => {
-        console.log(errors);
-      });
+  handleClick = event => {
+    event.preventDefault();
+    console.log(event.currentTarget.content.value);
+    localStorage.setItem(
+      'frameworkId',
+      JSON.stringify([`${event.target.name}`, `${event.target.id}`])
+    );
   };
 
   render() {
     return (
       <div className="container">
         <SubscriptionForm />
-        <CollectionsContainer handleOnClick={this.handleOnClick} />
+        <CollectionsContainer handleClick={this.handleClick} />
       </div>
     );
   }

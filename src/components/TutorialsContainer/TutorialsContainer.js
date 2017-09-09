@@ -1,7 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Tutorial from '../Tutorial/Tutorial';
+import axios from 'axios';
+var moment = require('moment');
 
 class TutorialsContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tutorials: []
+    };
+  }
+
+  componentDidMount() {
+    const frameworkId = localStorage.getItem('frameworkId');
+    axios
+      .get(`http://localhost:3001/v1/frameworks/${frameworkId}/tutorials`)
+      .then(response => {
+        this.setState({ tutorials: response.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <div className="row">
@@ -10,7 +32,7 @@ class TutorialsContainer extends Component {
             <li className="breadcrumb-item">
               <Link to="/">Collections</Link>
             </li>
-            <li className="breadcrumb-item active">React</li>
+            <li className="breadcrumb-item active">{localStorage.getItem}</li>
           </ol>
         </div>
         <div className="col-12">
@@ -27,27 +49,19 @@ class TutorialsContainer extends Component {
             <li className="list-inline-item float-right">Date</li>
           </ul>
         </div>
-        <div className="col-12">
-          <ul className="list-group">
-            <li className="list-group-item">
-              <div className="media">
-                <button type="button" className="btn btn-light">
-                  <i className="fa fa-arrow-up" aria-hidden="true" />
-                  <br />
-                  <small className="text-muted"> 12312</small>
-                </button>
-                <div className="media-body">
-                  <Link to="http://www.google.com">Cras justo odio</Link>
-                  <br />
-                  <small className="text-muted">Author: Bill Gates</small>
-                  <br />
-                  <small>Directory of framework tutorials for all levels</small>
-                  <span className="float-right">09/09/2017</span>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+        {this.state.tutorials.map(tutorial => {
+          return (
+            <Tutorial
+              key={tutorial.id}
+              title={tutorial.title}
+              description={tutorial.description}
+              author={tutorial.author}
+              url={tutorial.url}
+              likes={1234}
+              date={moment(tutorial.date).format('dddd, MMMM Do YYYY')}
+            />
+          );
+        })}
       </div>
     );
   }
