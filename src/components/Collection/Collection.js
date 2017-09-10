@@ -7,7 +7,7 @@ const Collection = props => {
   };
 
   return (
-    <div className="col-md-4" onClick={props.handleClick}>
+    <div id={props.title} className="col-md-4" onClick={props.handleClick}>
       <div className="card">
         <div className="card-body">
           <Link to={`/${props.title}/tutorials`}>

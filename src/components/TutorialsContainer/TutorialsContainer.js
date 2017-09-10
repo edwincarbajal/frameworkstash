@@ -13,7 +13,9 @@ class TutorialsContainer extends Component {
   }
 
   componentDidMount() {
-    const frameworkId = localStorage.getItem('frameworkId');
+    const frameworkId = JSON.parse(
+      '[' + localStorage.getItem('frameworkId') + ']'
+    )[0][1];
     axios
       .get(`http://localhost:3001/v1/frameworks/${frameworkId}/tutorials`)
       .then(response => {
@@ -22,9 +24,21 @@ class TutorialsContainer extends Component {
       .catch(err => {
         console.log(err);
       });
+    axios
+      .get(`http://localhost:3001/v1/frameworks/${frameworkId}`)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
+    const frameworkArray = JSON.parse(
+      '[' + localStorage.getItem('frameworkId') + ']'
+    );
+    const frameworkTitle = frameworkArray[0][0];
     return (
       <div className="row">
         <div className="col-12">
@@ -32,13 +46,13 @@ class TutorialsContainer extends Component {
             <li className="breadcrumb-item">
               <Link to="/">Collections</Link>
             </li>
-            <li className="breadcrumb-item active">{localStorage.getItem}</li>
+            <li className="breadcrumb-item active">{frameworkTitle}</li>
           </ol>
         </div>
         <div className="col-12">
           <div className="card">
             <div className="card-body">
-              <h4 className="card-title">React</h4>
+              <h4 className="card-title">{frameworkTitle}</h4>
               <p className="card-text">This is the React Description.</p>
             </div>
           </div>

@@ -16,11 +16,11 @@ class App extends Component {
 
   handleClick = event => {
     event.preventDefault();
-    console.log(event.currentTarget.content.value);
     localStorage.setItem(
       'frameworkId',
-      JSON.stringify([`${event.target.name}`, `${event.target.id}`])
+      JSON.stringify([`${event.target.innerHTML}`, `${event.target.id}`])
     );
+    console.log(localStorage.getItem('frameworkId'));
   };
 
   render() {
