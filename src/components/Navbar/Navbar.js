@@ -1,24 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router';
+
+import navbar from './navbar.css';
+
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar navbar-light">
       <a className="navbar-brand" href="#">
         <img
-          src="#"
+          src="https://cdn.worldvectorlogo.com/logos/react-1.svg"
           width="30"
           height="30"
-          className="d-inline-block align-top"
+          className="logo d-inline-block align-top"
           alt=""
         />
         frameworkstash
-        <br />
         <small className="text-muted">
           Directory of framework tutorials for all levels
         </small>
       </a>
       <span className="navbar-text">
-        <Link to="#">Submit a Tutorial</Link>
+        <button type="button" className="btn btn-outline-primary btn-sm">
+          <i className="fa fa-plus" aria-hidden="true" />
+          <Link to="#"> Request a Tutorial</Link>
+        </button>
       </span>
     </nav>
   );
