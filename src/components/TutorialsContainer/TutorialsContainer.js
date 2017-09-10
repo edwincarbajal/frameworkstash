@@ -39,7 +39,6 @@ class TutorialsContainer extends Component {
       '[' + localStorage.getItem('frameworkId') + ']'
     );
     const frameworkTitle = frameworkArray[0][0];
-    console.log(frameworkTitle);
     return (
       <div className="row">
         <div className="col-12">
