@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import collection from './collection.css';
+import './collection.css';
 
 const Collection = props => {
   const totalTutorialsHelper = number => {

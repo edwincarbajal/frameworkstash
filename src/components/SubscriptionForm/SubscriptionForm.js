@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import subscriptionform from './subscriptionform.css';
+
+import './subscriptionform.css';
 
 class SubscriptionForm extends Component {
   render() {
