@@ -1,5 +1,7 @@
 import React from 'react';
 
+import footer from './footer.css';
+
 const Footer = () => {
   return (
     <footer className="row">
@@ -7,10 +9,16 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-6">
             <div className="media">
-              <img className="d-flex mr-3" src="#" alt="" />
+              <img
+                src="https://cdn.worldvectorlogo.com/logos/react-1.svg"
+                width="30"
+                height="30"
+                className="logo d-inline-block align-top"
+                alt=""
+              />
               <div className="media-body">
-                frameworkstash is a directory of tutorials <br />made by
-                developers for developers.
+                <a href="/">frameworkstash</a> is a directory of tutorials{' '}
+                <br />made by developers for developers.
               </div>
             </div>
           </div>
@@ -39,7 +47,10 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-12 text-center">
-            <p className="text-muted">©frameworkstash 2017</p>
+            <p className="copyright text-muted">
+              <i className="fa fa-copyright" aria-hidden="true" />{' '}
+              frameworkstash 2017
+            </p>
           </div>
         </div>
       </div>

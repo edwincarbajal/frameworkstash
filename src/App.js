@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import './App.css';
+
 import Navbar from './components/Navbar/Navbar';
 import SubscriptionForm from './components/SubscriptionForm/SubscriptionForm';
 import CollectionsContainer from './components/CollectionsContainer/CollectionsContainer';
 import Footer from './components/Footer/Footer';
+
+import './app.css';
 
 class App extends Component {
   constructor(props) {

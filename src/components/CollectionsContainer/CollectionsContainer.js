@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Collection from '../Collection/Collection';
 import axios from 'axios';
+
+import Collection from '../Collection/Collection';
+
+import collectionscontainer from './collectionscontainer.css';
 
 class CollectionsContainer extends Component {
   constructor(props) {
@@ -24,9 +27,9 @@ class CollectionsContainer extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div id="collections-container" className="row">
         <div className="col-md-12">
-          <h4 className="text-muted">Collections</h4>
+          <h4 className=" collections-header">Collections</h4>
           <div className="card-deck">
             {this.state.collections.map(collection => {
               return (
@@ -42,11 +45,11 @@ class CollectionsContainer extends Component {
             })}
           </div>
         </div>
-        <div className="col-md-12 text-center">
+        {/* <div className="col-md-12 text-center">
           <button type="button" className="btn btn-outline-secondary">
             Load More
           </button>
-        </div>
+        </div> */}
       </div>
     );
   }
