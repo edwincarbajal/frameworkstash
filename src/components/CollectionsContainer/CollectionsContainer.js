@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Collection from '../Collection/Collection';
 
-import './collectionscontainer.css';
+import './CollectionsContainer.css';
 
 class CollectionsContainer extends Component {
   constructor(props) {
