@@ -6,8 +6,6 @@ import SubscriptionForm from './components/SubscriptionForm/SubscriptionForm';
 import CollectionsContainer from './components/CollectionsContainer/CollectionsContainer';
 import Footer from './components/Footer/Footer';
 
-import app from './app.css';
-
 class App extends Component {
   constructor(props) {
     super(props);
