@@ -22,7 +22,9 @@ class TutorialsContainer extends Component {
       '[' + localStorage.getItem('frameworkId') + ']'
     )[0][1];
     axios
-      .get(`http://localhost:3001/v1/frameworks/${frameworkId}/tutorials`)
+      .get(
+        `https://frameworkstash-api.herokuapp.com/v1/frameworks/${frameworkId}/tutorials`
+      )
       .then(response => {
         this.setState({ tutorials: response.data });
       })
@@ -82,21 +84,21 @@ class TutorialsContainer extends Component {
               </li>
             </ul>
           </div>
-                  {this.state.tutorials.map(tutorial => {
-          return (
-            <Tutorial
-              key={tutorial.id}
-              title={tutorial.title}
-              description={tutorial.description}
-              author={tutorial.author}
-              url={tutorial.url}
-              likes={tutorial.likes.length}
-              id={tutorial.id}
-              date={moment(tutorial.date).format('dddd, MMMM Do YYYY')}
-              fetchTutorials={this.fetchTutorials}
-            />
-          );
-        })}
+          {this.state.tutorials.map(tutorial => {
+            return (
+              <Tutorial
+                key={tutorial.id}
+                title={tutorial.title}
+                description={tutorial.description}
+                author={tutorial.author}
+                url={tutorial.url}
+                likes={tutorial.likes.length}
+                id={tutorial.id}
+                date={moment(tutorial.date).format('dddd, MMMM Do YYYY')}
+                fetchTutorials={this.fetchTutorials}
+              />
+            );
+          })}
         </div>
         <SubscriptionForm />
       </div>
