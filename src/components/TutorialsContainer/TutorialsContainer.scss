@@ -1,0 +1,27 @@
+.breadcrumb {
+    margin-top: 20px;
+    background-color: #fff !important;
+    .breadcrumb-item  a{
+      text-decoration: none;
+    }
+  }
+
+.tutorial-framework-col {
+  h4 {
+    font-size: 25px;
+    font-weight: bolder;
+  }
+  .card-body {
+    height: 175px;
+    .framework-description {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+  margin-bottom: 40px;
+}
+
+.title-headers {
+  padding: 0 20px !important;
+  padding-bottom: 20px !important;
+}

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import Tutorial from '../Tutorial/Tutorial';
 import axios from 'axios';
+
+import SubscriptionForm from '../SubscriptionForm/SubscriptionForm';
+import Tutorial from '../Tutorial/Tutorial';
+
+import './TutorialsContainer.css';
+
 var moment = require('moment');
 
 class TutorialsContainer extends Component {
@@ -24,14 +29,6 @@ class TutorialsContainer extends Component {
       .catch(err => {
         console.log(err);
       });
-    axios
-      .get(`http://localhost:3001/v1/frameworks/${frameworkId}`)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(err => {
-        console.log(err);
-      });
   }
 
   render() {
@@ -39,6 +36,7 @@ class TutorialsContainer extends Component {
       '[' + localStorage.getItem('frameworkId') + ']'
     );
     const frameworkTitle = frameworkArray[0][0];
+
     return (
       <div className="row">
         <div className="col-12">
@@ -49,18 +47,24 @@ class TutorialsContainer extends Component {
             <li className="breadcrumb-item active">{frameworkTitle}</li>
           </ol>
         </div>
-        <div className="col-12">
+        <div className="tutorial-framework-col col-12">
           <div className="card">
             <div className="card-body">
               <h4 className="card-title">{frameworkTitle}</h4>
-              <p className="card-text">This is the React Description.</p>
+              <p className="framework-description card-text">
+                This is the React Description.
+              </p>
             </div>
           </div>
         </div>
         <div className="col-12">
-          <ul className="list-inline">
-            <li className="list-inline-item">Tutorial Title</li>
-            <li className="list-inline-item float-right">Date</li>
+          <ul className="title-headers list-inline">
+            <li className="font-weight-bold list-inline-item">
+              <h6>Tutorial Title</h6>
+            </li>
+            <li className="font-weight-bold list-inline-item float-right">
+              <h6>Date</h6>
+            </li>
           </ul>
         </div>
         {this.state.tutorials.map(tutorial => {
@@ -76,6 +80,8 @@ class TutorialsContainer extends Component {
             />
           );
         })}
+
+        <SubscriptionForm />
       </div>
     );
   }

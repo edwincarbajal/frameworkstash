@@ -9,7 +9,11 @@ const Collection = props => {
   };
 
   return (
-    <div id={props.title} className="col-md-4" onClick={props.handleClick}>
+    <div
+      id={props.title}
+      className="framework-col col-md-4"
+      onClick={props.handleClick}
+    >
       <div className="card">
         <div className="card-header">
           <Link to={`/${props.title}/tutorials`}>
