@@ -11,7 +11,6 @@ class SubscriptionForm extends Component {
   }
 
   handleChange = event => {
-    console.log(event.target.value);
     this.setState({ formValue: event.target.value });
   };
 
