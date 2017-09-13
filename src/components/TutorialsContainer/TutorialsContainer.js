@@ -17,6 +17,20 @@ class TutorialsContainer extends Component {
     };
   }
 
+  fetchTutorials = () => {
+    const frameworkId = JSON.parse(
+      '[' + localStorage.getItem('frameworkId') + ']'
+    )[0][1];
+    axios
+      .get(`http://localhost:3001/v1/frameworks/${frameworkId}/tutorials`)
+      .then(response => {
+        this.setState({ tutorials: response.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   componentDidMount() {
     const frameworkId = JSON.parse(
       '[' + localStorage.getItem('frameworkId') + ']'
@@ -68,19 +82,21 @@ class TutorialsContainer extends Component {
               </li>
             </ul>
           </div>
-          {this.state.tutorials.map(tutorial => {
-            return (
-              <Tutorial
-                key={tutorial.id}
-                title={tutorial.title}
-                description={tutorial.description}
-                author={tutorial.author}
-                url={tutorial.url}
-                likes={1234}
-                date={moment(tutorial.date).format('dddd, MMMM Do YYYY')}
-              />
-            );
-          })}
+                  {this.state.tutorials.map(tutorial => {
+          return (
+            <Tutorial
+              key={tutorial.id}
+              title={tutorial.title}
+              description={tutorial.description}
+              author={tutorial.author}
+              url={tutorial.url}
+              likes={tutorial.likes.length}
+              id={tutorial.id}
+              date={moment(tutorial.date).format('dddd, MMMM Do YYYY')}
+              fetchTutorials={this.fetchTutorials}
+            />
+          );
+        })}
         </div>
         <SubscriptionForm />
       </div>
