@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 import Modal from 'react-modal';
+
 import './Footer.css';
 
 class Footer extends Component {
@@ -47,9 +50,12 @@ class Footer extends Component {
             <div className="col-md-6">
               <ul className="nav float-right">
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
+                  {/* <a className="nav-link active" href="#">
                     About Us
-                  </a>
+                  </a> */}
+                  <Link to="/about-us" className="nav-link active">
+                    About Us
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <a onClick={this.openModal} className="nav-link" href="#">
