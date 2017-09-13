@@ -23,19 +23,22 @@ class SubscriptionForm extends Component {
         'Content-Type': 'application/json'
       }
     };
-
-    axios
-      .post('http://localhost:3001/v1/subscribe', {
-        email: this.state.formValue
-      })
-      .then(response => {
-        alert('Thank you for subscribing!');
-        this.setState({ formValue: '' });
-      })
-      .catch(err => {
-        alert('Email already subscribed! Try another one!');
-        this.setState({ formValue: '' });
-      });
+    if (!this.state.formValue === '') {
+      axios
+        .post('http://localhost:3001/v1/subscribe', {
+          email: this.state.formValue
+        })
+        .then(response => {
+          alert(`${this.state.formValue} is now subscribed!`);
+          this.setState({ formValue: '' });
+        })
+        .catch(err => {
+          alert(`${this.state.formValue} is already subscribed. Try another!`);
+          this.setState({ formValue: '' });
+        });
+    } else {
+      alert('Please enter a valid email address!');
+    }
   };
 
   placeholderCheck = () => {};
