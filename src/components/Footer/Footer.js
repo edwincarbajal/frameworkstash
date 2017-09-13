@@ -144,7 +144,7 @@ class Footer extends Component {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">
-                    FAQ
+                    Help & FAQ
                   </a>
                 </li>
               </ul>
