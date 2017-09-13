@@ -13,9 +13,33 @@ class TutorialsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tutorials: []
+      tutorials: [],
+      description: ''
     };
   }
+
+  componentDidMount() {
+    const frameworkId = JSON.parse(
+      '[' + localStorage.getItem('frameworkId') + ']'
+    )[0][1];
+    axios
+      .get(
+        `https://frameworkstash-api.herokuapp.com/v1/frameworks/${frameworkId}/tutorials`
+      )
+      .then(response => {
+        this.setState({
+          tutorials: response.data,
+          description: response.data[0].framework.description
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  componentWillUnmount = () => {
+    this.setState({ description: '' });
+  };
 
   fetchTutorials = () => {
     const frameworkId = JSON.parse(
@@ -33,21 +57,12 @@ class TutorialsContainer extends Component {
       });
   };
 
-  componentDidMount() {
-    const frameworkId = JSON.parse(
-      '[' + localStorage.getItem('frameworkId') + ']'
-    )[0][1];
-    axios
-      .get(
-        `https://frameworkstash-api.herokuapp.com/v1/frameworks/${frameworkId}/tutorials`
-      )
-      .then(response => {
-        this.setState({ tutorials: response.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+  tutorialTitleHelper = title => {
+    return title
+      .toLowerCase()
+      .split(' ')
+      .join('-');
+  };
 
   render() {
     const frameworkArray = JSON.parse(
@@ -68,10 +83,14 @@ class TutorialsContainer extends Component {
           </div>
           <div className="tutorial-framework-col col-12">
             <div className="card">
-              <div className="card-body">
+              <div
+                className={`card-body ${this.tutorialTitleHelper(
+                  frameworkTitle
+                )}`}
+              >
                 <h4 className="card-title">{frameworkTitle}</h4>
                 <p className="framework-description card-text">
-                  This is the React Description.
+                  {this.state.description}
                 </p>
               </div>
             </div>
