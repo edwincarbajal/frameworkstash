@@ -18,11 +18,6 @@ class SubscriptionForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
     if (!this.state.formValue === '') {
       axios
         .post('http://localhost:3001/v1/subscribe', {
@@ -41,7 +36,6 @@ class SubscriptionForm extends Component {
     }
   };
 
-  placeholderCheck = () => {};
   render() {
     return (
       <div className="jumbotron jumbotron-fluid text-center">
