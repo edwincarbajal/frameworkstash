@@ -14,7 +14,10 @@ class Tutorial extends Component {
     const likes = JSON.parse(localStorage.getItem('likedTutorials')) || [];
     if (!likes.includes(`${this.props.id}`)) {
       axios
-        .get(`http://localhost:3001/v1/tutorials/${this.props.id}/like`)
+        .get(
+          `https://frameworkstash-api.herokuapp.com/v1/tutorials/${this.props
+            .id}/like`
+        )
         .then(response => {
           this.props.fetchTutorials();
         })

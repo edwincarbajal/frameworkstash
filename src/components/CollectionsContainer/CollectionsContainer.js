@@ -15,7 +15,7 @@ class CollectionsContainer extends Component {
 
   componentDidMount = () => {
     axios
-      .get('http://localhost:3001/v1/frameworks')
+      .get('https://frameworkstash-api.herokuapp.com/v1/frameworks')
       .then(response => {
         console.log(response);
         this.setState({ collections: response.data });
