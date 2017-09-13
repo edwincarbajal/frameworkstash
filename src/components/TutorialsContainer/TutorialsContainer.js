@@ -38,7 +38,9 @@ class TutorialsContainer extends Component {
       '[' + localStorage.getItem('frameworkId') + ']'
     )[0][1];
     axios
-      .get(`http://localhost:3001/v1/frameworks/${frameworkId}/tutorials`)
+      .get(
+        `https://frameworkstash-api.herokuapp.com/v1/frameworks/${frameworkId}/tutorials`
+      )
       .then(response => {
         this.setState({ tutorials: response.data });
       })
