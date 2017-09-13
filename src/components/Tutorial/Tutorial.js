@@ -35,7 +35,7 @@ class Tutorial extends Component {
               <button
                 onClick={this.handleClick}
                 type="button"
-                className="btn btn-light"
+                className="like-btn btn btn-light"
               >
                 <i className="fa fa-arrow-up" aria-hidden="true" />
                 <br />
