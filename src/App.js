@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import Navbar from './components/Navbar/Navbar';
-import SubscriptionForm from './components/SubscriptionForm/SubscriptionForm';
-import CollectionsContainer from './components/CollectionsContainer/CollectionsContainer';
 import Footer from './components/Footer/Footer';
 
 class App extends Component {
@@ -20,14 +17,14 @@ class App extends Component {
       'frameworkId',
       JSON.stringify([`${event.target.innerHTML}`, `${event.target.id}`])
     );
-    console.log(localStorage.getItem('frameworkId'));
   };
 
   render() {
     return (
       <div className="container">
-        <SubscriptionForm />
-        <CollectionsContainer handleClick={this.handleClick} />
+        <Navbar />
+        {this.props.children}
+        <Footer />
       </div>
     );
   }

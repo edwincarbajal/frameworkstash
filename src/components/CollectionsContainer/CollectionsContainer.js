@@ -17,12 +17,19 @@ class CollectionsContainer extends Component {
     axios
       .get('https://frameworkstash-api.herokuapp.com/v1/frameworks')
       .then(response => {
-        console.log(response);
         this.setState({ collections: response.data });
       })
       .catch(error => {
         console.log(error);
       });
+  };
+
+  handleClick = event => {
+    event.preventDefault();
+    localStorage.setItem(
+      'frameworkId',
+      JSON.stringify([`${event.target.innerHTML}`, `${event.target.id}`])
+    );
   };
 
   render() {
@@ -39,7 +46,7 @@ class CollectionsContainer extends Component {
                   description={collection.description}
                   title={collection.title}
                   total_tutorials={collection.total_tutorials}
-                  handleClick={this.props.handleClick}
+                  handleClick={this.handleClick}
                 />
               );
             })}

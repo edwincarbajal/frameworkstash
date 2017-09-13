@@ -1,22 +1,19 @@
 import React from 'react';
-import { Router, Route } from 'react-router';
+import { IndexRoute, Router, Route } from 'react-router';
 
 import App from './App';
-import Content from './Content';
-import Footer from './components/Footer/Footer';
-import Layout from './Layout';
+import Home from './components/Home/Home';
 import TutorialsContainer from './components/TutorialsContainer/TutorialsContainer';
-// import About from './components/About';
-// import NotFound from './components/NotFound';
+import About from './components/About/About';
 
-const Routes = props => (
-  <Layout>
-    <Router {...props}>
-      <Route path="/" component={App} />
-      <Route component={Content} />
+const routes = props => (
+  <Router {...props}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home} />
       <Route path="/:framework/tutorials" component={TutorialsContainer} />
-    </Router>
-  </Layout>
+      <Route path="/about" component={About} />
+    </Route>
+  </Router>
 );
 
-export default Routes;
+export default routes;

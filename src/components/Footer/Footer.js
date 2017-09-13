@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import Modal from 'react-modal';
 import './Footer.css';
 
@@ -47,9 +48,9 @@ class Footer extends Component {
             <div className="col-md-6">
               <ul className="nav float-right">
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
+                  <Link to="/about" className="nav-link active">
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <a onClick={this.openModal} className="nav-link" href="#">
@@ -134,7 +135,10 @@ class Footer extends Component {
                   </div>
                 </Modal>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <a
+                    className="nav-link"
+                    href="https://github.com/frameworkstash"
+                  >
                     Github
                   </a>
                 </li>
