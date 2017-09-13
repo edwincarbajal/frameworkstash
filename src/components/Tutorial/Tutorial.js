@@ -45,7 +45,9 @@ class Tutorial extends Component {
                 <small className="text-muted"> {this.props.likes}</small>
               </button>
               <div className="media-body">
-                <Link to={this.props.url}>{this.props.title}</Link>
+                <a href={this.props.url} target="_blank">
+                  {this.props.title}
+                </a>
                 <br />
                 <small className="text-muted">
                   Author: {this.props.author}
