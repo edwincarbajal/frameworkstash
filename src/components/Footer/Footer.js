@@ -134,13 +134,16 @@ class Footer extends Component {
                   </div>
                 </Modal>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <a
+                    className="nav-link"
+                    href="https://github.com/frameworkstash"
+                  >
                     Github
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">
-                    FAQ
+                    Help & FAQ
                   </a>
                 </li>
               </ul>
