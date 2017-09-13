@@ -9,14 +9,19 @@ class Tutorial extends Component {
 
   handleClick = event => {
     event.preventDefault();
-    axios
-      .get(`http://localhost:3001/v1/tutorials/${this.props.id}/like`)
-      .then(response => {
-        this.props.fetchTutorials();
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    const likes = JSON.parse(localStorage.getItem('likedTutorials')) || [];
+    if (!likes.includes(`${this.props.id}`)) {
+      axios
+        .get(`http://localhost:3001/v1/tutorials/${this.props.id}/like`)
+        .then(response => {
+          this.props.fetchTutorials();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      likes.push(`${this.props.id}`);
+      localStorage.setItem('likedTutorials', JSON.stringify(likes));
+    }
   };
 
   render() {
