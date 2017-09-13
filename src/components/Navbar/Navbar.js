@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 import Modal from 'react-modal';
 
 import './Navbar.css';
@@ -27,7 +29,7 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-light">
-        <a className="navbar-brand" href="#">
+        <Link to="/" className="navbar-brand">
           <img
             src="https://cdn.worldvectorlogo.com/logos/react-1.svg"
             width="30"
@@ -39,7 +41,7 @@ class Navbar extends Component {
           <small className="text-muted">
             Directory of framework tutorials for all levels
           </small>
-        </a>
+        </Link>
         <span className="navbar-text">
           <button
             onClick={this.openModal}
