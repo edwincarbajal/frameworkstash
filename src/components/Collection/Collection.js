@@ -8,6 +8,13 @@ const Collection = props => {
     return number > 1 ? `${number} tutorials` : `${number} tutorial`;
   };
 
+  const tutorialTitleHelper = title => {
+    return title
+      .toLowerCase()
+      .split(' ')
+      .join('-');
+  };
+
   return (
     <div
       id={props.title}
@@ -15,8 +22,8 @@ const Collection = props => {
       onClick={props.handleClick}
     >
       <div className="card">
-        <div className="card-header">
-          <Link to={`/${props.title}/tutorials`}>
+        <div className={`card-header ${tutorialTitleHelper(props.title)}`}>
+          <Link to={`/${tutorialTitleHelper(props.title)}/tutorials`}>
             <h4 content={props.title} id={props.id} className="card-title">
               {props.title}
             </h4>
