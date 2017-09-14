@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-
+import axios from 'axios';
 import Modal from 'react-modal';
 
 import './Navbar.css';
@@ -9,9 +9,33 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      name: '',
+      email: '',
+      topic: '',
+      description: ''
     };
   }
+
+  handleNameChange = event => {
+    const name = event.target.value;
+    this.setState({ name });
+  };
+
+  handleEmailChange = event => {
+    const email = event.target.value;
+    this.setState({ email });
+  };
+
+  handleTopicChange = event => {
+    const topic = event.target.value;
+    this.setState({ topic });
+  };
+
+  handleDescriptionChange = event => {
+    const description = event.target.value;
+    this.setState({ description });
+  };
 
   openModal = () => {
     this.setState({ modalIsOpen: true });
@@ -21,8 +45,30 @@ class Navbar extends Component {
     this.setState({ modalIsOpen: false });
   };
 
+  clearState = () => {
+    this.setState({
+      name: '',
+      email: '',
+      topic: '',
+      description: ''
+    });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
+    axios
+      .post(`http://localhost:3001/v1/send`, {
+        name: this.state.name,
+        email: this.state.email,
+        topic: this.state.topic,
+        description: this.state.description
+      })
+      .then(response => {
+        this.clearState();
+      })
+      .catch(err => {
+        this.clearState();
+      });
     this.closeModal();
   };
 
@@ -72,7 +118,12 @@ class Navbar extends Component {
                       >
                         Name:
                       </label>
-                      <input className="form-control" id="message-text" />
+                      <input
+                        onChange={this.handleNameChange}
+                        value={this.state.name}
+                        className="form-control"
+                        id="message-text"
+                      />
                     </div>
                     <div className="form-group">
                       <label
@@ -81,7 +132,11 @@ class Navbar extends Component {
                       >
                         Email:
                       </label>
-                      <input className="form-control" id="message-text" />
+                      <input
+                        onChange={this.handleEmailChange}
+                        className="form-control"
+                        id="message-text"
+                      />
                     </div>
                     <div className="form-group">
                       <label
@@ -94,6 +149,7 @@ class Navbar extends Component {
                         type="text"
                         className="form-control"
                         id="recipient-name"
+                        onChange={this.handleTopicChange}
                       />
                     </div>
                     <div className="form-group">
@@ -103,7 +159,11 @@ class Navbar extends Component {
                       >
                         Description:
                       </label>
-                      <textarea className="form-control" id="message-text" />
+                      <textarea
+                        onChange={this.handleDescriptionChange}
+                        className="form-control"
+                        id="message-text"
+                      />
                     </div>
                     <div className="modal-footer">
                       <button
