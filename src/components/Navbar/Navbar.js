@@ -13,28 +13,12 @@ class Navbar extends Component {
       name: '',
       email: '',
       topic: '',
-      description: ''
+      value: ''
     };
   }
 
-  handleNameChange = event => {
-    const name = event.target.value;
-    this.setState({ name });
-  };
-
-  handleEmailChange = event => {
-    const email = event.target.value;
-    this.setState({ email });
-  };
-
-  handleTopicChange = event => {
-    const topic = event.target.value;
-    this.setState({ topic });
-  };
-
-  handleDescriptionChange = event => {
-    const description = event.target.value;
-    this.setState({ description });
+  handleInputChange = event => {
+    this.setState({ [event.target.id]: event.target.value });
   };
 
   openModal = () => {
@@ -50,7 +34,7 @@ class Navbar extends Component {
       name: '',
       email: '',
       topic: '',
-      description: ''
+      value: ''
     });
   };
 
@@ -61,7 +45,7 @@ class Navbar extends Component {
         name: this.state.name,
         email: this.state.email,
         topic: this.state.topic,
-        description: this.state.description
+        value: this.state.value
       })
       .then(response => {
         this.clearState();
@@ -119,10 +103,10 @@ class Navbar extends Component {
                         Name:
                       </label>
                       <input
-                        onChange={this.handleNameChange}
+                        onChange={this.handleInputChange}
                         value={this.state.name}
                         className="form-control"
-                        id="message-text"
+                        id="name"
                       />
                     </div>
                     <div className="form-group">
@@ -133,9 +117,10 @@ class Navbar extends Component {
                         Email:
                       </label>
                       <input
-                        onChange={this.handleEmailChange}
+                        onChange={this.handleInputChange}
                         className="form-control"
-                        id="message-text"
+                        value={this.state.email}
+                        id="email"
                       />
                     </div>
                     <div className="form-group">
@@ -148,8 +133,9 @@ class Navbar extends Component {
                       <input
                         type="text"
                         className="form-control"
-                        id="recipient-name"
-                        onChange={this.handleTopicChange}
+                        id="topic"
+                        value={this.state.topic}
+                        onChange={this.handleInputChange}
                       />
                     </div>
                     <div className="form-group">
@@ -160,9 +146,10 @@ class Navbar extends Component {
                         Description:
                       </label>
                       <textarea
-                        onChange={this.handleDescriptionChange}
+                        onChange={this.handleInputChange}
                         className="form-control"
-                        id="message-text"
+                        id="value"
+                        value={this.state.value}
                       />
                     </div>
                     <div className="modal-footer">
