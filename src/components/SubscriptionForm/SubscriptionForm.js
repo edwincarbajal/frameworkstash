@@ -15,23 +15,23 @@ class SubscriptionForm extends Component {
   };
 
   handleSubmit = event => {
-    event.preventDefault();
-
-    if (!this.state.formValue === '') {
+    if (this.state.formValue) {
       axios
         .post('http://localhost:3001/v1/subscribe', {
           email: this.state.formValue
         })
         .then(response => {
+          console.log(response);
           alert(`${this.state.formValue} is now subscribed!`);
           this.setState({ formValue: '' });
+          localStorage.setItem('subscribed', true);
         })
         .catch(err => {
           alert(`${this.state.formValue} is already subscribed. Try another!`);
           this.setState({ formValue: '' });
         });
     } else {
-      alert('Please enter a valid email address!');
+      console.log(this.state.formValue);
     }
   };
 
