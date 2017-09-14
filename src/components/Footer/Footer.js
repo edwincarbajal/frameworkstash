@@ -142,11 +142,6 @@ class Footer extends Component {
                     Github
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Help & FAQ
-                  </a>
-                </li>
               </ul>
             </div>
             <div className="col-12 text-center">
