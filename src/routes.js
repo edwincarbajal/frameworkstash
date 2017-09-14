@@ -8,7 +8,11 @@ import NotFound from './components/NotFound/NotFound';
 import About from './components/About/About';
 
 const routes = props => (
-  <Router {...props} history={hashHistory}>
+  <Router
+    {...props}
+    onUpdate={() => window.scrollTo(0, 0)}
+    history={hashHistory}
+  >
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/:framework/tutorials" component={TutorialsContainer} />
