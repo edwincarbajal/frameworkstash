@@ -1,5 +1,5 @@
 import React from 'react';
-import { IndexRoute, Router, Route } from 'react-router';
+import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 import App from './App';
 import Home from './components/Home/Home';
@@ -8,7 +8,7 @@ import NotFound from './components/NotFound/NotFound';
 import About from './components/About/About';
 
 const routes = props => (
-  <Router {...props}>
+  <Router {...props} history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/:framework/tutorials" component={TutorialsContainer} />
