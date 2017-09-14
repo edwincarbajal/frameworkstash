@@ -112,7 +112,7 @@ class Footer extends Component {
                             </label>
                             <textarea
                               className="form-control"
-                              rows="10"
+                              rows="6"
                               id="message-text"
                             />
                           </div>
