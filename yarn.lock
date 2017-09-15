@@ -1906,6 +1906,10 @@ detect-port-alt@1.1.3:
     address "^1.0.1"
     debug "^2.6.0"
 
+devicon@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/devicon/-/devicon-2.0.0.tgz#6374a28c18561abe15720af01dca5ea0953cd51b"
+
 diff@^3.2.0:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.3.1.tgz#aa8567a6eed03c531fc89d3f711cd0e5259dec75"
