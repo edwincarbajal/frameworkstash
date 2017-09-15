@@ -5,8 +5,10 @@ import { hashHistory } from 'react-router';
 import Routes from './routes';
 
 import './index.css';
+
 import 'bootstrap/dist/css/bootstrap.css';
-import '../node_modules/font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css';
+import 'devicon/devicon.min.css';
 
 // import registerServiceWorker from './registerServiceWorker';
 
