@@ -39,7 +39,7 @@ class Footer extends Component {
                 alt=""
               />
               <div className="media-body">
-                <a href="/">frameworkstash</a> is a directory of tutorials{' '}
+                <Link to="/">frameworkstash</Link> is a directory of tutorials{' '}
                 <br />made by developers for developers.
               </div>
             </div>
