@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { hashHistory } from 'react-router';
 
 import Routes from './routes';
@@ -12,7 +12,4 @@ import 'devicon/devicon.min.css';
 
 // import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(
-  <Routes history={hashHistory} />,
-  document.getElementById('root')
-);
+render(<Routes history={hashHistory} />, document.getElementById('root'));
