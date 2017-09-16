@@ -39,7 +39,7 @@ class SubscriptionForm extends Component {
     return (
       <div className="jumbotron jumbotron-fluid text-center">
         <div className="container">
-          <h3>Subscribe to get notifed when new tutorials are added.</h3>
+          <h3>Subscribe to get notified when new tutorials are added.</h3>
           <form onSubmit={this.handleSubmit} className="form-inline">
             <div className="form-group mx-auto">
               <input
