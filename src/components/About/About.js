@@ -24,7 +24,7 @@ const About = () => {
             As graduates of Dev Bootcamp, we realize the impact community has on
             the learning process. The goal of frameworkstash is to be the hub
             for all of those who want to learn the most cutting edge frameworks
-            within a community that supports its self; gathering tutorials from
+            within a community that supports itself; gathering tutorials from
             outside resources, and curating its own.
           </p>
           <p className="standout lead">
@@ -42,16 +42,16 @@ const About = () => {
         <div className="main-section col-12 bg-dark text-center">
           <h2>Technologies we used</h2>
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-md-4">
               <i className="tech-stack devicon-bootstrap-plain colored" />
             </div>
-            <div className="col-md-3">
+            <div className="col-md-4">
               <i className="tech-stack devicon-rails-plain colored" />
             </div>
-            <div className="col-md-3">
+            <div className="col-md-4">
               <i className="tech-stack devicon-react-original colored" />
             </div>
-            <div className="col-md-3">React Router placeholder</div>
+            {/* <div className="col-md-3">React Router placeholder</div> */}
           </div>
         </div>
       </div>
