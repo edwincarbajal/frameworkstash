@@ -126,7 +126,7 @@ class TutorialsContainer extends Component {
                 description={tutorial.description}
                 author={tutorial.author}
                 url={tutorial.url}
-                likes={tutorial.likes.length}
+                likes={tutorial.total_likes}
                 id={tutorial.id}
                 date={moment(tutorial.date).format('MMM. D YYYY')}
                 fetchTutorials={this.fetchTutorials}
