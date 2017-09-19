@@ -35,7 +35,7 @@ class CollectionsContainer extends Component {
   render() {
     return (
       <div id="collections-container" className="row">
-        <div className="col-md-12">
+        <div className="col-12">
           <h4 className=" collections-header">Collections</h4>
           <div className="card-deck">
             {this.state.collections.map(collection => {
