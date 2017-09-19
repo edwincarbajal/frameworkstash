@@ -52,9 +52,13 @@ class Footer extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <a onClick={this.openModal} className="nav-link" href="#">
+                <button
+                  onClick={this.openModal}
+                  type="button"
+                  className="btn btn-link"
+                >
                   Contact
-                </a>
+                </button>
               </li>
               <Modal
                 className="modal-dialog"
