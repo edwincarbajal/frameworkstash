@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import Featured from '../Featured/Featured';
 import Tutorial from '../Tutorial/Tutorial';
 
 import './FeaturedContainer.css';
