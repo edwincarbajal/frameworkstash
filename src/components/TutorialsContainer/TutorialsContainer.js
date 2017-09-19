@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import axios from 'axios';
 
-import SubscriptionForm from '../SubscriptionForm/SubscriptionForm';
 import Tutorial from '../Tutorial/Tutorial';
-import FeaturedContainer from '../FeaturedContainer/FeaturedContainer';
 
 import './TutorialsContainer.css';
 
@@ -65,18 +63,6 @@ class TutorialsContainer extends Component {
       .join('-');
   };
 
-  subscribedCheck = () => {
-    if (localStorage.getItem('subscribed') === 'true') {
-      return (
-        <div>
-          <FeaturedContainer />
-        </div>
-      );
-    } else {
-      return <SubscriptionForm />;
-    }
-  };
-
   render() {
     const frameworkArray = JSON.parse(
       '[' + localStorage.getItem('frameworkId') + ']'
@@ -85,7 +71,7 @@ class TutorialsContainer extends Component {
 
     return (
       <div>
-        <div className="row">
+        <div className="tutorials-container row">
           <div className="col-12">
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
@@ -134,7 +120,6 @@ class TutorialsContainer extends Component {
             );
           })}
         </div>
-        {this.subscribedCheck()}
       </div>
     );
   }

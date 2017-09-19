@@ -23,23 +23,10 @@ class Home extends Component {
         console.log(errors);
       });
   };
-  // subscribedCheck = () => {
-  //   if (localStorage.getItem('subscribed') === 'true') {
-  //     return (
-  //       <div>
-  //         <TrendingContainer />
-  //         <FeaturedContainer />
-  //       </div>
-  //     );
-  //   } else {
-  //     return <SubscriptionForm />;
-  //   }
-  // };
 
   render() {
     return (
       <div>
-        {/* {this.subscribedCheck()} */}
         <SubscriptionForm />
         <CollectionsContainer />
         <FeaturedContainer featuredTutorials={this.state.featuredTutorials} />
