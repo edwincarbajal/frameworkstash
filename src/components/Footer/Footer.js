@@ -48,7 +48,7 @@ class Footer extends Component {
             <ul className="nav float-right">
               <li className="nav-item">
                 <Link to="/about" className="nav-link active">
-                  About Us
+                  About
                 </Link>
               </li>
               <li className="nav-item">

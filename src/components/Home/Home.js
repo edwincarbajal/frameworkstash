@@ -3,9 +3,7 @@ import axios from 'axios';
 
 import SubscriptionForm from '../SubscriptionForm/SubscriptionForm';
 import CollectionsContainer from '../CollectionsContainer/CollectionsContainer';
-import Tutorial from '../Tutorial/Tutorial';
-
-var moment = require('moment');
+import FeaturedContainer from '../FeaturedContainer/FeaturedContainer';
 
 class Home extends Component {
   constructor(props) {
@@ -17,7 +15,7 @@ class Home extends Component {
 
   componentDidMount = () => {
     axios
-      .get('http://localhost:3001/v1/tutorials/trending')
+      .get('https://frameworkstash-api.herokuapp.com/v1/tutorials/trending')
       .then(response => {
         this.setState({ featuredTutorials: response.data });
       })
@@ -44,21 +42,7 @@ class Home extends Component {
         {/* {this.subscribedCheck()} */}
         <SubscriptionForm />
         <CollectionsContainer />
-        {this.state.featuredTutorials.map(tutorial => {
-          return (
-            <Tutorial
-              key={tutorial.id}
-              title={tutorial.title}
-              description={tutorial.description}
-              author={tutorial.author}
-              url={tutorial.url}
-              likes={tutorial.total_likes}
-              id={tutorial.id}
-              date={moment(tutorial.date).format('MMM. D YYYY')}
-              fetchTutorials={this.fetchTutorials}
-            />
-          );
-        })}
+        <FeaturedContainer featuredTutorials={this.state.featuredTutorials} />
       </div>
     );
   }
