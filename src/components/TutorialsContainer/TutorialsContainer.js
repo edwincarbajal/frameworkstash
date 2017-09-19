@@ -128,7 +128,7 @@ class TutorialsContainer extends Component {
                 url={tutorial.url}
                 likes={tutorial.total_likes}
                 id={tutorial.id}
-                date={moment(tutorial.date).format('MMM. D YYYY')}
+                date={moment(tutorial.created_at).format('MMM. D YYYY')}
                 fetchTutorials={this.fetchTutorials}
               />
             );
