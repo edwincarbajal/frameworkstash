@@ -1,4 +1,5 @@
 .tutorials-container {
+    padding-bottom: 80px;
     margin-bottom: 80px;
 }
 
@@ -38,4 +39,13 @@
 .title-headers {
   padding: 0 20px !important;
   padding-bottom: 20px !important;
+}
+
+.sticky-footer-newsletter {
+  padding: 20px 0;
+  background-color: #8cc1ff;
+  margin-top: 30px;
+  input {
+    width: 200px;
+  }
 }

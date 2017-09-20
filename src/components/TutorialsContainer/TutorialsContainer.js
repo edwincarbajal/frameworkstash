@@ -120,6 +120,29 @@ class TutorialsContainer extends Component {
             );
           })}
         </div>
+        <div className="row">
+          <div className="col-12">
+            <div className="sticky-footer-newsletter fixed-bottom text-white">
+              <form className="form-inline justify-content-center">
+                <span>
+                  Get the newest <strong> {frameworkTitle} </strong> tutorials
+                  in your inbox
+                </span>
+                <div className="form-group mx-sm-3">
+                  <input
+                    type="text"
+                    className="form-control-plaintext"
+                    id="staticEmail2"
+                    placeholder=" Your email"
+                  />
+                </div>
+                <button type="submit" className="btn btn-dark text-uppercase">
+                  Notify me
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
