@@ -17,7 +17,8 @@ class App extends Component {
       >
         <Navbar />
         {this.props.children}
-        <Footer />
+        {this.props.location.pathname !==
+          `/${this.props.params.framework}/tutorials` && <Footer />}
       </div>
     );
   }
