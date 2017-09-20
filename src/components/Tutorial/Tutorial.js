@@ -13,14 +13,25 @@ class Tutorial extends Component {
           `https://frameworkstash-api.herokuapp.com/v1/tutorials/${this.props
             .id}/like`
         )
-        .then(response => {
+        .then(() => {
           this.props.fetchTutorials();
+          likes.push(`${this.props.id}`);
+          localStorage.setItem('likedTutorials', JSON.stringify(likes));
         })
         .catch(err => {
           console.log(err);
         });
-      likes.push(`${this.props.id}`);
-      localStorage.setItem('likedTutorials', JSON.stringify(likes));
+    }
+  };
+
+  hasUserLiked = id => {
+    const parsedLikes =
+      JSON.parse(localStorage.getItem('likedTutorials')) || [];
+    if (parsedLikes) {
+      const likedTutorials = parsedLikes.map(id => {
+        return parseInt(id, 10);
+      });
+      return likedTutorials.includes(id) && 'bg-liked';
     }
   };
 
@@ -28,7 +39,11 @@ class Tutorial extends Component {
     return (
       <div className="col-12">
         <ul className="list-group">
-          <li className="list-group-item">
+          <li
+            id={this.props.id}
+            className={`list-group-item ${this.props.fetchTutorials &&
+              this.hasUserLiked(this.props.id)}`}
+          >
             <div className="media">
               <button
                 onClick={this.handleClick}

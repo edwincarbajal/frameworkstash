@@ -24,12 +24,26 @@ class Home extends Component {
       });
   };
 
+  fetchTutorials = () => {
+    axios
+      .get(`https://frameworkstash-api.herokuapp.com/v1/tutorials/trending`)
+      .then(response => {
+        this.setState({ featuredTutorials: response.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <div>
         <SubscriptionForm />
         <CollectionsContainer />
-        <FeaturedContainer featuredTutorials={this.state.featuredTutorials} />
+        <FeaturedContainer
+          featuredTutorials={this.state.featuredTutorials}
+          fetchTutorials={this.fetchTutorials}
+        />
       </div>
     );
   }
