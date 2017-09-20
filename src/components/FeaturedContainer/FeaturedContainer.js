@@ -23,7 +23,7 @@ const FeaturedContainer = props => {
             likes={tutorial.total_likes}
             id={tutorial.id}
             date={moment(tutorial.created_at).format('MMM. D YYYY')}
-            fetchTutorials={this.fetchTutorials}
+            fetchTutorials={props.fetchTutorials}
           />
         );
       })}
