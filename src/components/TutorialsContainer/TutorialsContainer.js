@@ -63,6 +63,14 @@ class TutorialsContainer extends Component {
       .join('-');
   };
 
+  imageHelper = title => {
+    if (title.match(/react/)) {
+      return 'devicon-react-original colored';
+    } else if (title.match(/rails/)) {
+      return 'devicon-rails-plain colored';
+    }
+  };
+
   render() {
     const frameworkArray = JSON.parse(
       '[' + localStorage.getItem('frameworkId') + ']'
@@ -87,6 +95,11 @@ class TutorialsContainer extends Component {
                   frameworkTitle
                 )}`}
               >
+                <i
+                  className={`framework-icon ${this.imageHelper(
+                    this.tutorialTitleHelper(frameworkTitle)
+                  )}`}
+                />
                 <h4 className="card-title">{frameworkTitle}</h4>
                 <p className="framework-description card-text">
                   {this.state.description}

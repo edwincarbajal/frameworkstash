@@ -15,14 +15,27 @@ const Collection = props => {
       .join('-');
   };
 
+  const imageHelper = title => {
+    if (title.match(/react/)) {
+      return 'devicon-react-original colored';
+    } else if (title.match(/rails/)) {
+      return 'devicon-rails-plain colored';
+    }
+  };
+
   return (
     <div
       id={props.title}
-      className="framework-col col-md-4"
+      className="framework-col col-xs-12 col-md-6 col-xl-4"
       onClick={props.handleClick}
     >
       <div className="card">
         <div className={`card-header ${tutorialTitleHelper(props.title)}`}>
+          <i
+            className={`framework-icon ${imageHelper(
+              tutorialTitleHelper(props.title)
+            )}`}
+          />
           <Link to={`/${tutorialTitleHelper(props.title)}/tutorials`}>
             <h4 content={props.title} id={props.id} className="card-title">
               {props.title}
