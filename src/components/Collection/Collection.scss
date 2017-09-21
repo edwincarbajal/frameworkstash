@@ -3,13 +3,17 @@
     border: none !important;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
     .card-header {
-      height: 175px;
+      padding-top: 80px;
+      .framework-icon {
+        font-size: 50px;
+      }
       a:link, a:visited {
         text-decoration: none;
         color: #58402C;
       }
       h4 {
         font-size: 25px;
+        padding-top: 20px;
         font-weight: bolder;
       }
     }
