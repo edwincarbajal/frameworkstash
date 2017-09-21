@@ -7,8 +7,15 @@
   .logo {
     margin-right: 10px;
   }
-  small {
-    font-size: 10px;
-    margin-left: 10px;
+  .navbar-brand {
+    line-height: 20px;
+  }
+
+  .navbar-brand small {
+    display: block;
+    font-size:10px;
+  }
+  .button {
+    float: right;
   }
 }

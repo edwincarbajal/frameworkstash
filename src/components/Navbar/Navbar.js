@@ -13,7 +13,8 @@ class Navbar extends Component {
       name: '',
       email: '',
       topic: '',
-      value: ''
+      value: '',
+      navCollapsed: false
     };
   }
 
@@ -56,30 +57,56 @@ class Navbar extends Component {
     this.closeModal();
   };
 
+  onToggleNav = () => {
+    this.setState(prevState => ({
+      navCollapsed: !prevState.navCollapsed
+    }));
+  };
+
   render() {
+    const { navCollapsed } = this.state;
     return (
-      <nav className="navbar navbar-light">
+      <nav className="navbar navbar-light navbar-expand-lg">
         <Link to="/" className="navbar-brand">
-          <img
+          {/* <img
             src="https://cdn.worldvectorlogo.com/logos/react-1.svg"
             width="30"
             height="30"
-            className="logo d-inline-block align-top"
+            className="logo d-inline-block"
             alt=""
-          />
+          /> */}
           frameworkstash
           <small className="text-muted">
             Directory of framework tutorials for all levels
           </small>
         </Link>
-        <span className="navbar-text">
-          <button
-            onClick={this.openModal}
-            type="button"
-            className="btn btn-outline-primary btn-sm"
-          >
-            <i className="fa fa-plus" aria-hidden="true" /> Request a Tutorial
-          </button>
+
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          onClick={this.onToggleNav}
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
+
+        <div
+          className={`${!navCollapsed && 'collapse'} navbar-collapse`}
+          id="navbarSupportedContent"
+        >
+          <ul className="navbar-nav ml-auto">
+            <button
+              onClick={this.openModal}
+              type="button"
+              className="btn btn-outline-primary btn-sm"
+            >
+              <i className="fa fa-plus" aria-hidden="true" /> Request a Tutorial
+            </button>
+          </ul>
           <Modal
             className="modal-dialog"
             isOpen={this.state.modalIsOpen}
@@ -170,7 +197,7 @@ class Navbar extends Component {
               </div>
             </div>
           </Modal>
-        </span>
+        </div>
       </nav>
     );
   }
