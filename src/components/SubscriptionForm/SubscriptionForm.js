@@ -26,7 +26,7 @@ class SubscriptionForm extends Component {
   handleSubmit = event => {
     if (this.state.formValue) {
       axios
-        .post('https://frameworkstash-api.herokuapp.com', {
+        .post('https://frameworkstash-api.herokuapp.com/v1/subscribe', {
           email: this.state.formValue
         })
         .then(response => {
