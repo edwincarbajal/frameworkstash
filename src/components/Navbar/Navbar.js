@@ -42,7 +42,7 @@ class Navbar extends Component {
   handleSubmit = event => {
     event.preventDefault();
     axios
-      .post(`http://localhost:3001/v1/send`, {
+      .post(`https://frameworkstash-api.herokuapp.com/v1/send`, {
         name: this.state.name,
         email: this.state.email,
         topic: this.state.topic,
