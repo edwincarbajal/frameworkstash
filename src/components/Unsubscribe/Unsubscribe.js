@@ -15,7 +15,7 @@ class Unsubscribe extends Component {
 
   handleSubmit = () => {
     axios
-      .post('http://localhost:3001/v1/unsubscribe', {
+      .post('https://frameworkstash-api.herokuapp.com/v1/unsubscribe', {
         email: this.state.formValue
       })
       .then(res => {
