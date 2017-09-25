@@ -13,7 +13,8 @@ class TutorialsContainer extends Component {
     super(props);
     this.state = {
       tutorials: [],
-      description: ''
+      description: '',
+      email: ''
     };
   }
 
@@ -54,6 +55,23 @@ class TutorialsContainer extends Component {
       .catch(err => {
         console.log(err);
       });
+  };
+
+  handleSubmit = () => {
+    axios
+      .post('https://frameworkstash-api.herokuapp.com/v1/subscribe', {
+        email: this.state.email
+      })
+      .then(res => {
+        alert('Subscribed!');
+      })
+      .catch(err => {
+        console.log('You are already subscribed!');
+      });
+  };
+
+  handleInputChange = event => {
+    this.setState({ email: event.target.value });
   };
 
   tutorialTitleHelper = title => {
@@ -136,7 +154,10 @@ class TutorialsContainer extends Component {
         <div className="row">
           <div className="col-12">
             <div className="sticky-footer-newsletter fixed-bottom text-white">
-              <form className="form-inline justify-content-center">
+              <form
+                onSubmit={this.handleSubmit}
+                className="form-inline justify-content-center"
+              >
                 <span>
                   Get the newest <strong> {frameworkTitle} </strong> tutorials
                   in your inbox
@@ -147,6 +168,7 @@ class TutorialsContainer extends Component {
                     className="form-control-plaintext"
                     id="staticEmail2"
                     placeholder=" Your email"
+                    onChange={this.handleInputChange}
                   />
                 </div>
                 <button type="submit" className="btn btn-dark text-uppercase">

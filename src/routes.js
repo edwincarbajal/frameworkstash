@@ -6,6 +6,7 @@ import Home from './components/Home/Home';
 import TutorialsContainer from './components/TutorialsContainer/TutorialsContainer';
 import NotFound from './components/NotFound/NotFound';
 import About from './components/About/About';
+import Unsubscribe from './components/Unsubscribe/Unsubscribe';
 
 const routes = props => (
   <Router
@@ -17,6 +18,7 @@ const routes = props => (
       <IndexRoute component={Home} />
       <Route path="/:framework/tutorials" component={TutorialsContainer} />
       <Route path="/about" component={About} />
+      <Route path="/unsubscribe" component={Unsubscribe} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>
