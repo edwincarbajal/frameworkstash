@@ -24,6 +24,7 @@ class Unsubscribe extends Component {
       .catch(err => {
         alert('Email not found');
       });
+    this.setState({ formValue: '' });
   };
 
   render() {
