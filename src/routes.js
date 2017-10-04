@@ -11,7 +11,7 @@ import Unsubscribe from './components/Unsubscribe/Unsubscribe';
 const Routes = props => (
   <Router
     {...props}
-    onUpdate={() => window.scrollTo(0, 0)}
+    // onUpdate={() => window.scrollTo(0, 0)}
     history={hashHistory}
   >
     <Route path="/" component={App}>
