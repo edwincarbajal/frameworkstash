@@ -8,7 +8,7 @@ import NotFound from './components/NotFound/NotFound';
 import About from './components/About/About';
 import Unsubscribe from './components/Unsubscribe/Unsubscribe';
 
-const routes = props => (
+const Routes = props => (
   <Router
     {...props}
     onUpdate={() => window.scrollTo(0, 0)}
@@ -24,4 +24,4 @@ const routes = props => (
   </Router>
 );
 
-export default routes;
+export default Routes;

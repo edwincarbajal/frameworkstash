@@ -4,14 +4,13 @@ import { hashHistory } from 'react-router';
 
 import Routes from './routes';
 
-import ReactGA from 'react-ga';
-
 import './index.css';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'devicon/devicon.min.css';
 
+var ReactGA = require('react-ga');
 // import registerServiceWorker from './registerServiceWorker';
 
 ReactGA.initialize('UA-107554017-1');
