@@ -31,13 +31,6 @@ class Footer extends Component {
         <div className="row">
           <div className="col-md-6">
             <div className="media">
-              <img
-                src="https://cdn.worldvectorlogo.com/logos/react-1.svg"
-                width="30"
-                height="30"
-                className="logo d-inline-block align-top"
-                alt=""
-              />
               <div className="media-body">
                 <Link to="/">frameworkstash</Link> is a directory of tutorials{' '}
                 <br />made by developers for developers.
