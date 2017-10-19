@@ -38,7 +38,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <SubscriptionForm />
+        {/* <SubscriptionForm /> */}
         <CollectionsContainer />
         <FeaturedContainer
           featuredTutorials={this.state.featuredTutorials}
