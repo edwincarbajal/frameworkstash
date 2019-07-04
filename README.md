@@ -1,4 +1,5 @@
-# Welcome to frameworkstash!
+> Frameworkstash is hosted on a free tier on [heroku](http://frameworkstash.herokuapp.com/). Please wait a few seconds to start up.
+# Frameworkstash
 
 Why do you want to use frameworkstash?:
 
